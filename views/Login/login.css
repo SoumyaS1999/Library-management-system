@@ -1,0 +1,14 @@
+.form{
+    display: flex;
+    margin-left: 32%;
+}
+.userform{
+    margin-left: 20%;
+}
+.header{
+    text-align: center;
+}
+.links{
+    margin-top: 10%;
+    text-align: center;
+}

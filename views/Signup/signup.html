@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="signup.css">    
+</head>
+<body>
+    <h1 class="header"> Library Management</h1>
+    <div class="form">
+    <form onsubmit="signup(event)">
+        <h1>Sign as admin</h1>
+        <label for ="name">Enter Name:</label><br>
+        <input type="text" name="name" id="name" autocomplete="off" required/><br>
+        <label for ="email">Enter Email:</label><br>
+        <input type="email" name="email" id="email" autocomplete="off" required/><br>
+        <label for ="password">Enter Password:</label><br>
+        <input type="password" name="password" id="password" autocomplete="off" required/><br>
+        <input class= "submit" type="submit" id="btn" value="submit" ><br>
+    </form>
+
+    <form class ="userform"onsubmit="usersignup(event)">
+        <h1>Sign as user</h1>
+            <label for ="username">Enter Name:</label><br>
+            <input type="text" name="username" id="username" autocomplete="off" required/><br>
+            <label for ="useremail">Enter Email:</label><br>
+            <input type="email" name="useremail" id="useremail" autocomplete="off" required/><br>
+            <label for ="userpassword">Enter Password:</label><br>
+            <input type="password" name="userpassword" id="userpassword" autocomplete="off" required/><br>
+            <input class= "submit" type="submit" id="user-btn" value="submit" ><br>
+    </form>
+</div>
+<div class ='links'>
+
+    <a class="link" href='../Login/login.html'>Existing User- Login</a>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"></script>
+
+    <script src="./signup.js"></script>
+</body>
+</html>

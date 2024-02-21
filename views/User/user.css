@@ -1,0 +1,32 @@
+.User{
+    display: flex;
+}
+.form{
+    min-width: 15%;
+}
+.book-list{
+    min-width: 30%;
+
+}
+.borrowedbooks{
+    min-width: 30%;
+}
+.returnedbooks{
+    min-width: 30%;
+}
+.booklist{
+    font-size: large;
+    list-style: none;
+    border-style: solid;
+    padding-top: 1%;
+    margin-top: 1%;
+    padding-left: 2%;
+    padding-bottom: 1%;
+}
+.header-item{
+    padding-left: 10%;
+    text-align: center;
+}
+.header{
+    text-align: center;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <h1 class="header">Admin Page</h1>
+    <div class="Admin">
+    <div class="form">
+    <form onsubmit="addbooks(event)">
+        <h1>Add Books</h1>
+        <label for ="name">Book Name:</label><br>
+        <input type="text" name="name" id="name" autocomplete="off" required/><br>
+        <label for ="author">Author:</label><br>
+        <input type="text" name="author" id="author" autocomplete="off" required/><br>
+        <label for ="price">Price:</label><br>
+        <input type="number" name="price" id="price" autocomplete="off" required/><br>
+        <input class= "submit" type="submit" id="btn" value="submit" ><br>
+    </form>
+
+    </div>
+    <div class="book-list"><h1 class="header-item">Book-List</h1> <ul id="allbooks"></ul> </div>
+    <div class="borrowedbooks"><h1 class="header-item">Borrowed Books</h1><ul id="borrowedbooks"></ul></div>
+    <div class="returnedbooks"><h1 class="header-item">Returned Books</h1><ul id="returnedbooks"></ul></div>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"></script>
+
+    <script src="./admin.js"></script>
+</body>
+</html>

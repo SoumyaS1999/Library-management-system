@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+     <link rel="stylesheet" href="login.css">
+  </head>
+  <body>
+    <h1 class="header">Library Management</h1>
+    <div class="form">
+      <form id="form" onsubmit="login(event)">
+        <h1>Login as Admin</h1>
+        <label for="email">Enter Email:</label><br />
+        <input name="email" type="text" id="email" autocomplete="email" /><br />
+        <label for="password">Enter Password:</label><br />
+        <input
+          name="password"
+          type="password"
+          id="password"
+          autocomplete="off"
+        /><br />
+        <input class="submit" type="submit" id="btn" value="submit" /><br />
+      </form>
+
+      <form class="userform" onsubmit="userlogin(event)">
+        <h1>Login as User</h1>
+        <label for="useremail">Enter Email:</label><br />
+        <input
+          name="useremail"
+          type="text"
+          id="useremail"
+          autocomplete="useremail"
+        /><br />
+        <label for="userpassword">Enter Password:</label><br />
+        <input
+          name="userpassword"
+          type="password"
+          id="userpassword"
+          autocomplete="off"
+        /><br />
+        <input
+          class="usersubmit"
+          type="submit"
+          id="user-btn"
+          value="submit"
+        /><br />
+      </form>
+    </div>
+    <div class="links">
+
+      <a href="../Signup/signup.html" class="link">New User- Sign Up</a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js"></script>
+
+    <script>
+      function login(event) {
+        event.preventDefault();
+
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+
+        const loginDetails = {
+          email,
+          password,
+        };
+        axios
+          .post("http://localhost:3000/admin/login", loginDetails)
+          .then((response) => {
+            console.log(response);
+            if (response.status === 200) {
+              alert(response.data.message);
+              localStorage.setItem("token", response.data.token);
+              window.location.href = "../Admin/admin.html";
+            } else {
+              throw new Error(response.data.message);
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+            document.body.innerHTML += `<div style="color: red;">${err}</div>`;
+          });
+      }
+
+      function userlogin(event) {
+        event.preventDefault();
+
+        const email = event.target.useremail.value;
+        const password = event.target.userpassword.value;
+
+        const loginDetails = {
+          email,
+          password,
+        };
+        axios.post("http://localhost:3000/user/login", loginDetails)
+          .then((response) => {
+            console.log(response);
+            if (response.status === 200) {
+              alert(response.data.message);
+              localStorage.setItem("token", response.data.token);
+              window.location.href = "../User/user.html";
+            } else {
+              throw new Error(response.data.message);
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+            document.body.innerHTML += `<div style="color: red;">${err}</div>`;
+          });
+      }
+    </script>
+  </body>
+</html>
